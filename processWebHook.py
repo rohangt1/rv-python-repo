@@ -1,6 +1,6 @@
 import flask
 from docx2pdf import convert
-import requests
+from urllib import request
 import ftplib
 import os
 from flask import send_from_directory
@@ -13,6 +13,13 @@ def favicon():
 @app.route('/')
 @app.route('/home')
 def home():
+
+    # remote_url = 'https://cwac.in/init_certification_client_application/1645433053973/forms/OUTPUT11.docx'
+    # # Define the local filename to save data
+    # local_file = 'OUTPUT11.docx'
+    # # Download remote and save locally
+    # request.urlretrieve(remote_url, local_file)
+
     # session = ftplib.FTP('ftp.cwac.in','cwacin','$Rv01111996')
     # URL = "https://cwac.in/init_certification_client_application/1645433053973/forms/OUTPUT11.docx"
     # response = requests.get(URL)
