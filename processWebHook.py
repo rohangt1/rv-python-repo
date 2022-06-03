@@ -4,7 +4,6 @@ import requests
 import ftplib
 import os
 from flask import send_from_directory
-import comtypes.client
 app = flask.Flask(__name__)
 @app.route('/favicon.ico')
 def favicon():
@@ -14,18 +13,6 @@ def favicon():
 @app.route('/')
 @app.route('/home')
 def home():
-    # print("1")
-    # session = ftplib.FTP('ftp.cwac.in','cwacin','$Rv01111996')
-    # print("2")
-    # print(session.dir())
-    # #file = open('contract_review_form.docx','rb')                  # file to send
-    # print("3")
-    # #session.storbinary('contract_review_form.docx', file)     # send the file
-    # print("4")
-    # #file.close()                                    # close file and FTP
-    # print("5")
-    # session.quit()
-    # print("6")
     session = ftplib.FTP('ftp.cwac.in','cwacin','$Rv01111996')
     URL = "https://cwac.in/init_certification_client_application/1645433053973/forms/OUTPUT11.docx"
     response = requests.get(URL)
