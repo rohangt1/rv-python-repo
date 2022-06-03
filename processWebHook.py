@@ -1,5 +1,6 @@
 import flask
 from docx2pdf import convert
+import aspose.words as aw
 from urllib import request
 import ftplib
 import os
@@ -21,8 +22,10 @@ def home():
     request.urlretrieve(remote_url, local_file)
 
     session = ftplib.FTP('ftp.cwac.in','cwacin','$Rv01111996')
-    convert("OUTPUT11.docx")
-    convert("OUTPUT11.docx", "OUTPUT11.pdf")
+    # convert("OUTPUT11.docx")
+    # convert("OUTPUT11.docx", "OUTPUT11.pdf")
+    doc = aw.Document("OUTPUT11.docx")
+    doc.save("OUTPUT11.pdf")
     file = open('OUTPUT11.pdf','rb')                  # file to send
     session.storbinary('STOR OUTPUT11.pdf', file)     # send the file
     file.close()                                    # close file and FTP
